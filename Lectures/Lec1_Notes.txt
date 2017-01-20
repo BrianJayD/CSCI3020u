@@ -1,0 +1,103 @@
+**Slide 16**
+More cache = processes last longer
+I/O Structure:
+  CPU --> I/O (Hardware)
+
+  OS will call on the driver to initialize a controller to produce I/O.
+
+  Interrupted I/O is good for 1 byte. Such as reading 1 byte, input from keyboard etc.
+
+  Processor has to save the status of the machine; save registers.
+
+Single-Processor System:
+  Simplest form - single processor that executes everything
+  Has to wait for first instruction to finish before proceeding to next instruction
+
+Multiprocessor System:
+  Problems may occur when there are two or more processors that are dependant on each other
+  Increases the amount of instructions that are being processed.
+
+  Graceful degradation is when one process fails, there is atleast one other processor to
+  fall back on.
+
+Asymmetric Multiprocessing:
+  One "Boss" processor that completes process when the minor slave processors are finished
+
+Symmetric Multiprocessing:
+  All processors are the same and they monitor each other.
+  They share memory but they have their own cache
+
+Multi-Core CPU:
+  On chip communication is faster than between chip communication. Instruction or monitoring
+  does not need to travel between chips but rather stays within the same chip, reducing travel time.
+
+Clustered Systems:
+  Asymmetric clustering: Boss waits for slaves to finish
+
+  Symmetric clustering: All processors are the same and undergo same amount of work.
+
+  OS manages EVERYTHING
+
+Multiprogramming:
+  Allow one or more program to execute. There is no one program that undergoes 100% power 100% of the time.
+  Must have job scheduling in order to manage the executables.
+
+Timesharing:
+  Instead of waiting for the next job to execute or finish, splits the time and resources between each job.
+  Response time should be < 1s. Must be able to execute many instructions within 1s. All programs are fighting
+  to execute.
+
+  Uses CPU scheduling. To schedule what processes are more important than others, and prioritize its executable.
+  When the process is finished and executed, it is kicked out so that more resources are available to other
+  programs that still require the CPU.
+
+Interrupt Driven:
+  Hardware or Software (Exceptions or traps)
+  Timed interrupt can happen every 2 milliseconds so that the OS can take over and see what instructions were
+  performed based on what happen.
+
+Dual-Mode Multi-Mode:
+  Most OS are Dual-Mode --> User mode and Kernel Mode. User-Mode applications cannot use priviledged commands
+  or tasks. Kernel-Mode allows access to administrative commands and tasks. Hardware bits must be present to
+  help differentiate which mode is currently in use.
+
+  Mode bit either carries a 0 or 1. Cannot switch in User-Mode; Must switch only in Kernel-Mode.
+
+  Multi-Mode provides more than 1 bit in order to allow access to other modes.
+
+Transition Between Modes:
+  Timers are used to allow the OS to take control over the CPU and manage the processes that are currently
+  fighting for CPU resources.
+
+Process Management:
+  Program sits in hard-disk. (Passive)
+  After a program is executed, it is sent to the RAM and becomes a process. (Active)
+
+  A program waits till enough resources are allocated, then it executes.
+
+  OS is in charge of managing and scheduling all the processes. This includes suspending processes, switching
+  processes between RAM and hard-disk.
+
+Memory Management:
+  OS manages memory by dividing memory into blocks into pages, swapping memory, allocating pages in RAM for processes.
+
+Storage Management:
+  Important because this is where data and files are stored.
+
+  Storage is shared between processes, and the OS is needed to schedule these processes.
+
+  Each storage media has different characteristics which is taken into consideration by the OS.
+
+Caching:
+  Allows the fast execution of programs. Used to allocate memory and instructions between a slower media to a faster media
+  to allow for faster processing.
+
+  Cache moves one by one into a register.
+
+I/O Systems:
+  Manages memory to buffer inputs and outputs. OS deals with device drivers in order to access memory and address
+  of the different hardwares that are being used. Allocates memory to allow information to travel between hardware.
+
+Protection and Security:
+  OS uses User ID's in order to associate you, a user, with the program that is being executed or files. It ensures
+  that certain parts in memory are being access by the right users and limits priviledges of certain users.

@@ -1,0 +1,130 @@
+Lecture 2
+
+OS Services:
+  UI is a service where the user can provide commands. Command line, GUI, batch interface(scripts)
+
+  Program executables are also services. Execuatables provide a service when running.
+
+  I/O operations
+
+  File System manipulation provides storage to store files, read, write, create, delete like a file
+  explorer or directory window.
+
+  Communication by message packaging or memory sharing.
+
+  Error detection allows the detection of error whether is it by the user or system.
+
+  Resource allocation includes buses, CPU clock cycle, I/O devices in order for processes to run and
+  execute. Ensures that resources are allocated evenly and processes are not taking up the resources
+  longer than it should to allow other processes to gain access to the resources as well.
+
+  Accounting keeps track of user actions to allow for debugging and tracking of how much resources
+  are being used up during processes.
+
+  Protection and Security allows and restricts users from accessing resources as well as preventing
+  processes from attacking each other which can lead to errors and system damage. Requires user
+  authentication to prevent invalid access commands.
+
+Command Interpreters:
+  Command Line Interpreter (CLI) uses internal commands to access the system and run processes. Users
+  provide a command and the CLI executes the command. Commands can be added or modified to help complete
+  the process. Uses shell to recieve and run commands.
+
+Graphical User Interface:
+  This UI takes simple user actions to process commands. This gives a visible interface that users can
+  click or recieve I/O.
+
+Touchscreen Interface:
+  Actions and commands are received through gestures and voice which allows simplicity and ease of use.
+
+System Calls:
+  Provice interfaces for the services. Uses Application Programming Interface(API) instead of direct system
+  calls. WIN32, POSIX API, Java API are examples. Provides information for system calls, what happens when
+  commands are run. These commands are provided in libraries.
+
+  Recieving input from user and outputting a prompt are examples of system calls. Like in programming, there
+  is a sequence of calls.
+
+System Call implementation:
+  System-call interface provides an interface for the user who can access API instructions.
+  *GO OVER*
+
+System Call Parameter Passing:
+  2 ways to pass parameters from user to system.
+
+  Registers, when compiler passes through registers it is the fastest way. However there are limited resources
+  which is not optimal at high parameters. Efficient when there are simple processes.
+
+  Parameter stored in block is used when you need to store name, address, byte size etc. Allows you to store as
+  much as you want as long as enough memory is allocated. Stores information in registers.
+
+  Parameters places, or pushed in stacks. Kernel will know where the information is allocated by using stacks.
+
+  Some OS uses a combination of the 3 ways to pass parameters. Passing by registers is faster but may also use
+  another way to become efficient during higher loads of processes.
+
+Types of System Calls:(Whatever is on the slides)
+  Process Control --> Creates and terminates processes. Load and execute. Get attributes of programs, how many
+  resources are needed, how long it takes during an event. Allocated memory when the process is executed. Dumps
+  memory when an error occurs in order to show the actions that was followed up by an error. MS-DOS is a small OS
+  that tests the hardware. Made in 1980s it only executes one task at a time. Uses a shell when booted and uses
+  commands to receive tasks. If something goes wrong, the whole process has to be restarted. FreeBSD is a multitasking
+  OS such as unix.
+
+  File Manipulation --> Creates and deletes files. Open, closes, read, write, move..... basically whatever file
+  folders do. Also sets and obtains attributes of files like name, type, size etc.
+
+  Device Manipulation -->
+
+  Information Maintenance --> Obtains time and date, system data, get and sets process attributes
+
+  Communications --> Uses device communication connections.
+
+  Protection -->
+
+System Programs:
+  Some programs use system calls, some programs are a complete package them selves which can run on its own.
+  Programs can by provided with the OS while others can be obtained outside the OS.
+
+  File Management -->
+  Status Information -->
+  File Modification -->
+  Program Language -->
+  Program Loading and Execution -->
+  Communications -->
+  Background Services --> Storing process memory in RAM. Daemons are running all the time to help kernel run jobs.
+  Application Programs -->
+
+Operating System Design and Implementation:
+  Design Goals: Designing process starts with a goal of what you want the system to do. Set basic requirements that need to be
+  implemented in order for the OS to function the way you want. Ensure that there are hardware requirements that
+  is sufficient enough for the functions you want the OS to run. OS should be convenient for the user. Should also be
+  easy to design, implement and maintain while being efficient in process running.
+
+  Seperation of Mechanisms and Policies: What will be done during the design process. What to expect while deisgning as well
+  as possible obsticles that will come along the way and the most efficient way to do so. Uses speration policy to enforce
+  recourse allocation by setting timers and a way to prioritize.
+
+  Implementation: Uses a mix of languages. Low levels are written in assembly language because it is fast and efficient but hard
+  to write. Main body is created in C. High level languages are used because they are easier to port to other hardware but
+  it is slow and increased hardware requirements. Emulations allow an OS to run on non-native hardware like Virtual Machines.
+
+OS Structure:
+  Simple Structure (MS-DOS): Has some structure although uses one module. However
+
+  Traditional UNIC System Structure: Seperated into Kernel which is most of the OS, and the shell or system Programs.
+
+  Layered Approach: Layers interact with neighboring layers. One problem is access time due to the amount of layer travelling.
+  If the user and hardware can tolerate the delay in time, the Layer approach is efficient. Layers uses system calling to
+  communicate with each other. Designing the layer approach is challenging because of the organization of functions
+  within layers.
+
+  Microkernel System Structure: A kernel that has the minimal but important functionalities. Uses message passing between
+  modules. If needed, more modules can be added to the OS to provide more functions as long as the main kernel isn't modified.
+  OS can be expanded however the communication between kernels becomes complicated as more modules are added.
+
+Modules:
+  Loadable kernel modules
+
+Hybrid System:
+  Uses previous structures that uses microkernels and layers.
